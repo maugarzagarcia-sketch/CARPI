@@ -1,5 +1,11 @@
 {
-  "rewrites": [
-    { "source": "/api/notion/:slug*", "destination": "/api/notion?slug=:slug*" }
+  "version": 2,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "api/notion.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/notion/(.*)", "dest": "/api/notion.js?slug=$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
