@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/api/notion/:slug*", "destination": "/api/notion?slug=:slug*" }
+  ]
+}
